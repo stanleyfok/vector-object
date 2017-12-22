@@ -7,6 +7,14 @@ const set1 = { a: 1, b: 2, c: 3 };
 const set2 = { b: 2, c: 1, d: 2 };
 
 describe('Vector', () => {
+  describe('toObject()', () => {
+    it('should be able to convert vector to object', () => {
+      const a = new Vector(set1);
+
+      a.toObject().should.to.deep.equal(set1);
+    });
+  });
+
   describe('clone()', () => {
     it('should be able to clone a vector', () => {
       const a = new Vector(set1);
@@ -26,8 +34,8 @@ describe('Vector', () => {
     });
   });
 
-  describe('get(key)', () => {
-    it('should be able to get the value of a key', () => {
+  describe('get(component)', () => {
+    it('should be able to get the value of a component', () => {
       const a = new Vector(set1);
 
       a.get('a').should.to.be.equal(1);
@@ -36,8 +44,8 @@ describe('Vector', () => {
     });
   });
 
-  describe('set(key, value)', () => {
-    it('should be able to set the value of a key', () => {
+  describe('set(component, value)', () => {
+    it('should be able to set the value of a component', () => {
       const a = new Vector(set1);
       a.set('a', 10);
 
@@ -46,14 +54,6 @@ describe('Vector', () => {
       const b = new Vector(newSet);
 
       a.should.to.deep.equal(b);
-    });
-  });
-
-  describe('toObject()', () => {
-    it('should be able to convert vector to object', () => {
-      const a = new Vector(set1);
-
-      a.toObject().should.to.deep.equal(set1);
     });
   });
 
@@ -91,6 +91,34 @@ describe('Vector', () => {
 
     it('the vectors under operation should be untouched', () => {
       a.toObject().should.to.deep.equal(set1);
+    });
+  });
+
+  describe('getDotProduct(vector)', () => {
+    const a = new Vector(set1);
+    const b = new Vector(set2);
+
+    it('should be able to get dot product with the target vector', () => {
+      a.getDotProduct(b).should.to.be.equal(7);
+    });
+
+    it('the vectors under operation should be untouched', () => {
+      a.toObject().should.to.deep.equal(set1);
+      b.toObject().should.to.deep.equal(set2);
+    });
+  });
+
+  describe('getCosineSimilarity(vector)', () => {
+    const a = new Vector(set1);
+    const b = new Vector(set2);
+
+    it('should be able to get cosine similarity with the target vector', () => {
+      a.getCosineSimilarity(b).should.to.be.equal(0.6236095644623236);
+    });
+
+    it('the vectors under operation should be untouched', () => {
+      a.toObject().should.to.deep.equal(set1);
+      b.toObject().should.to.deep.equal(set2);
     });
   });
 
@@ -166,20 +194,6 @@ describe('Vector', () => {
 
     it('the vectors under operation should be untouched', () => {
       a.toObject().should.to.deep.equal(set1);
-    });
-  });
-
-  describe('getDotProduct(vector)', () => {
-    const a = new Vector(set1);
-    const b = new Vector(set2);
-
-    it('should be able to get dot product with the target vector', () => {
-      a.getDotProduct(b).should.to.be.equal(7);
-    });
-
-    it('the vectors under operation should be untouched', () => {
-      a.toObject().should.to.deep.equal(set1);
-      b.toObject().should.to.deep.equal(set2);
     });
   });
 });
