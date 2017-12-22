@@ -1,7 +1,7 @@
 const chai = require('chai');
-
-const should = chai.should();
 const Vector = require('../lib/Vector');
+
+chai.should();
 
 const set1 = { a: 1, b: 2, c: 3 };
 const set2 = { b: 2, c: 1, d: 2 };
