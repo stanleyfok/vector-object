@@ -1,0 +1,27 @@
+{
+  "name": "vector-object",
+  "version": "1.0.0",
+  "description": "A vector class supporting vector operations in n-dimensional space. Useful for word vectors calculation.",
+  "scripts": {
+    "eslint": "./node_modules/.bin/eslint '**/*.js'",
+    "eslint-fix": "./node_modules/.bin/eslint --fix '**/*.js'",
+    "test": "./node_modules/.bin/mocha test/**/*.js"
+  },
+  "keywords": [
+    "vector",
+    "math",
+    "data",
+    "mining",
+    "machine",
+    "learning"
+  ],
+  "author": "Stanley Fok <stanleyfok@gmail.com> (https://github.com/stanleyfok)",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.13.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "mocha": "^4.0.1"
+  }
+}
