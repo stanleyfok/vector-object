@@ -116,6 +116,19 @@ const dotProduct = a.getDotProduct(b);
 console.log(dotProduct); // return 6
 ```
 
+### getCosineSimilarity(vector)
+
+return the cosine similarity (range from 0 to 1, the larger the more similar between the two vectors) of the input vector and the vector object
+```js
+const a = new Vector({ a: 1, b: 2, c: 3 });
+const b = new Vector({ b: 2, c: 2, d: 2 });
+const similarityAA = a.getCosineSimilarity(a);
+const similarityAB = a.getCosineSimilarity(b);
+
+console.log(similarityAA); // return 1
+console.log(similarityAB); // return 0.6236095644623236
+```
+
 ### normalize()
 
 return a normalized vector of the vector object
