@@ -16,10 +16,10 @@ describe('Vector', () => {
     });
   });
 
-  describe('getKeys()', () => {
-    it('should be able to getKeys of a vector', () => {
+  describe('getComponents()', () => {
+    it('should be able to getComponents of a vector', () => {
       const a = new Vector(set1);
-      const keys = a.getKeys();
+      const keys = a.getComponents();
 
       keys.should.to.have.members(['a', 'b', 'c']);
       keys.should.to.have.lengthOf(3);
