@@ -1,12 +1,13 @@
 {
   "name": "vector-object",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A vector class supporting vector operations in n-dimensional space. Useful for word vectors calculation.",
   "homepage": "https://github.com/stanleyfok/vector-object",
   "repository": {
     "type": "git",
     "url": "git://github.com/stanleyfok/vector-object.git"
   },
+  "main": "./lib/Vector.js",
   "scripts": {
     "eslint": "./node_modules/.bin/eslint '**/*.js'",
     "eslint-fix": "./node_modules/.bin/eslint --fix '**/*.js'",
