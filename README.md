@@ -120,8 +120,8 @@ console.log(dotProduct); // return 6
 
 return the cosine similarity (range from 0 to 1, the larger the more similar between the two vectors) of the input vector and the vector object
 ```js
-const a = new Vector({ a: 1, b: 2, c: 3 });
-const b = new Vector({ b: 2, c: 2, d: 2 });
+const a = new Vector({ ant: 1, bird: 2, cat: 3 });
+const b = new Vector({ bird: 2, cat: 2, dog: 2 });
 const similarityAA = a.getCosineSimilarity(a);
 const similarityAB = a.getCosineSimilarity(b);
 
