@@ -17,6 +17,23 @@ const Vector = require('vector-object');
 
 ## Usage
 
+* [Constructor](#constructor)
+* [toObject()](#toobject)
+* [clone()](#clone)
+* [getComponents()](#getcomponents)
+* [get(component)](#getcomponent)
+* [set(component, value)](#setcomponent-value)
+* [isEqual(vector)](#isequalvector)
+* [getDistance(vector)](#getdistancevector)
+* [getLength()](#getlength)
+* [getDotProduct(vector)](#getdotproductvector)
+* [getCosineSimilarity(vector)](#getcosinesimilarityvector)
+* [normalize()](#normalize)
+* [add(vector)](#addvector)
+* [subtract(vector)](#subtractvector)
+* [multiply(c)](#multiplyc)
+* [divide(c)](#dividec)
+
 ### constructor
 
 create a new vector object
