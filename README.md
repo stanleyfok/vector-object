@@ -23,7 +23,7 @@ The vector operations now would update the instance itself, rather than creating
 
 ## Usage
 
-* [Constructor](#constructor)
+* [constructor](#constructor)
 * [clone()](#clone)
 * [toObject()](#toobject)
 * [getComponents()](#getcomponents)
