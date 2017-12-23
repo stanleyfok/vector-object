@@ -18,7 +18,6 @@ const Vector = require('vector-object');
 ## Usage
 
 * [Constructor](#constructor)
-* [toObject()](#toobject)
 * [clone()](#clone)
 * [getComponents()](#getcomponents)
 * [get(component)](#getcomponent)
@@ -33,21 +32,13 @@ const Vector = require('vector-object');
 * [subtract(vector)](#subtractvector)
 * [multiply(c)](#multiplyc)
 * [divide(c)](#dividec)
+* [chainability](#chainability)
 
 ### constructor
 
 create a new vector object
 ```js
 const a = new Vector({ x: 1, y: 2, z: 3 });
-```
-
-### toObject()
-
-return the components and values as object of the vector object
-```js
-const a = new Vector({ react: 5, angular: 2, vue: 2, marko: 1 });
-
-console.log(a.toObject()); // return { react: 5, angular: 2, vue: 2, marko: 1 }
 ```
 
 ### clone()
@@ -57,12 +48,12 @@ return a copy of the vector object
 const a = new Vector({ x: 1, y: 2, z: 3 });
 const b = a.clone();
 
-console.log(b.toObject()); // return { x: 1, y: 2, z: 3 }
+console.log(b); // return { x: 1, y: 2, z: 3 }
 ```
 
 ### getComponents()
 
-return the components as array in the vector object
+return array of the components in the vector object
 ```js
 const a = new Vector({ react: 5, angular: 2, vue: 2, marko: 1 });
 
@@ -86,7 +77,7 @@ set the value of the component in the vector object
 const a = new Vector({ react: 5, angular: 2, vue: 2, marko: 1 });
 a.set('react', 10);
 
-console.log(a.toObject()); // return { react: 10, angular: 2, vue: 2, marko: 1 }
+console.log(a); // return { react: 10, angular: 2, vue: 2, marko: 1 }
 ```
 
 ### isEqual(vector)
@@ -95,10 +86,11 @@ return a boolean value if the input vector is same as itself
 ```js
 const a = new Vector({ a: 1, b: 2, c: 3 });
 const b = new Vector({ a: 1, b: 2, c: 3 });
-const c = new Vector({ b: 2, d: 4 });
+const c = new Vector({ a: 1, b: 2 });
 
 console.log(a.isEqual(b)); // return true
 console.log(a.isEqual(c)); // return false
+console.log(c.isEqual(a)); // return false
 ```
 
 ### getDistance(vector)
@@ -148,54 +140,63 @@ console.log(similarityAB); // return 0.6236095644623236
 
 ### normalize()
 
-return a normalized vector of the vector object
+normalized the vector and return itself
 ```js
 const a = new Vector({ a: 3, b: 4 });
-const n = a.normalize();
+a.normalize();
 
-console.log(n.toObject()); // return { a: 0.6, b: 0.8 }
+console.log(a); // return { a: 0.6, b: 0.8 }
 ```
 
 ### add(vector)
 
-return a vector after adding the input vector and the vector object
+perform additional with the input vector and return itself
 ```js
 const a = new Vector({ a: 1, b: 2 });
 const b = new Vector({ b: 1, c: 2 });
-const c = a.add(b);
+a.add(b);
 
-console.log(c.toObject()); // return { a: 1, b: 3, c: 2 }
+console.log(a); // return { a: 1, b: 3, c: 2 }
 ```
 
 ### subtract(vector)
 
-return a vector after subtracting the input vector from the vector object
+perform subtraction with the input vector and return itself
 ```js
 const a = new Vector({ a: 1, b: 2 });
 const b = new Vector({ b: 1, c: 2 });
-const c = a.subtract(b);
 
-console.log(c.toObject()); // return { a: 1, b: 0, c: -2 }
+console.log(a); // return { a: 1, b: 0, c: -2 }
 ```
 
 ### multiply(c)
 
-return a vector after scaling the vector object with constant c
+perform multiplication with the input vector and return itself
 ```js
 const a = new Vector({ a: 1, b: 2, c: 1 });
-const b = a.multiply(10);
+a.multiply(10);
 
-console.log(b.toObject()); // return { a: 10, b: 20, c: 10 }
+console.log(a); // return { a: 10, b: 20, c: 10 }
 ```
 
 ### divide(c)
 
-return a vector after dividing the vector object with constant c
+perform division with the input vector and return itself
 ```js
 const a = new Vector({ a: 1, b: 2, c: 1 });
-const b = a.divide(10);
 
-console.log(b.toObject()); // return { a: 0.1, b: 0.2, c: 0.1 }
+console.log(a); // return { a: 0.1, b: 0.2, c: 0.1 }
+```
+
+### chainability
+
+The vector calculation methods are chainable so you can write your expression in the following way:
+```js
+const a = new Vector({ a: 1, b: 2, c: 1 });
+const b = new Vector({ a: 2, b: 1 });
+const c = new Vector({ a: 2, b: 1 });
+
+const v = a.clone().add(b).subtract(c).normalize();
 ```
 
 ## Test
