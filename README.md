@@ -221,6 +221,7 @@ console.log(a); // return { a: 10, b: 20, c: 10 }
 perform division with the input vector and return itself
 ```js
 const a = new Vector({ a: 1, b: 2, c: 1 });
+a.divide(10);
 
 console.log(a); // return { a: 0.1, b: 0.2, c: 0.1 }
 ```
