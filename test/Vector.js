@@ -5,16 +5,9 @@ chai.should();
 
 const set1 = { a: 1, b: 2, c: 3 };
 const set2 = { b: 2, c: 1, d: 2 };
+const set3 = { a: 1, b: 2 };
 
 describe('Vector', () => {
-  describe('toObject()', () => {
-    it('should be able to convert vector to object', () => {
-      const a = new Vector(set1);
-
-      a.toObject().should.to.deep.equal(set1);
-    });
-  });
-
   describe('clone()', () => {
     it('should be able to clone a vector', () => {
       const a = new Vector(set1);
@@ -61,9 +54,12 @@ describe('Vector', () => {
     it('should be able to check if target vector is equal to itself', () => {
       const a = new Vector(set1);
       const b = new Vector(set2);
+      const c = new Vector(set3);
 
       a.isEqual(a).should.to.be.equal(true);
       a.isEqual(b).should.to.be.equal(false);
+      a.isEqual(c).should.to.be.equal(false);
+      c.isEqual(a).should.to.be.equal(false);
     });
   });
 
@@ -77,7 +73,8 @@ describe('Vector', () => {
     });
 
     it('the vectors under operation should be untouched', () => {
-      a.toObject().should.to.deep.equal(set1);
+      a.should.to.deep.equal(set1);
+      b.should.to.deep.equal(set2);
     });
   });
 
@@ -90,7 +87,7 @@ describe('Vector', () => {
     });
 
     it('the vectors under operation should be untouched', () => {
-      a.toObject().should.to.deep.equal(set1);
+      a.should.to.deep.equal(set1);
     });
   });
 
@@ -103,8 +100,8 @@ describe('Vector', () => {
     });
 
     it('the vectors under operation should be untouched', () => {
-      a.toObject().should.to.deep.equal(set1);
-      b.toObject().should.to.deep.equal(set2);
+      a.should.to.deep.equal(set1);
+      b.should.to.deep.equal(set2);
     });
   });
 
@@ -113,87 +110,72 @@ describe('Vector', () => {
     const b = new Vector(set2);
 
     it('should be able to get cosine similarity with the target vector', () => {
-      a.getCosineSimilarity(b).should.to.be.equal(0.6236095644623236);
+      a.getCosineSimilarity(b).should.to.be.equal(0.6236095644623235);
     });
 
     it('the vectors under operation should be untouched', () => {
-      a.toObject().should.to.deep.equal(set1);
-      b.toObject().should.to.deep.equal(set2);
+      a.should.to.deep.equal(set1);
+      b.should.to.deep.equal(set2);
     });
   });
 
   describe('normalize()', () => {
     const a = new Vector(set1);
+    const l = a.getLength();
     const v = a.normalize();
 
     it('should be able to get a normalized vector', () => {
-      const l = Math.sqrt(14);
-
-      v.toObject().should.to.deep.equal({ a: 1 / l, b: 2 / l, c: 3 / l });
-    });
-
-    it('the vectors under operation should be untouched', () => {
-      a.toObject().should.to.deep.equal(set1);
+      v.should.to.deep.equal({ a: 1 / l, b: 2 / l, c: 3 / l });
     });
   });
 
   describe('add(vector)', () => {
     const a = new Vector(set1);
     const b = new Vector(set2);
-    const v = a.add(b);
+    a.add(b);
 
     it('should be able to add two vector', () => {
-      v.toObject().should.to.deep.equal({
+      a.should.to.deep.equal({
         a: 1, b: 4, c: 4, d: 2,
       });
     });
 
-    it('the vectors under operation should be untouched', () => {
-      a.toObject().should.to.deep.equal(set1);
-      b.toObject().should.to.deep.equal(set2);
+    it('the input vector should be untouched', () => {
+      b.should.to.deep.equal(set2);
     });
   });
 
   describe('subtract(vector)', () => {
     const a = new Vector(set1);
     const b = new Vector(set2);
-    const v = a.subtract(b);
+    a.subtract(b);
 
     it('should be able to subtract two vector', () => {
-      v.toObject().should.to.deep.equal({
+      a.should.to.deep.equal({
         a: 1, b: 0, c: 2, d: -2,
       });
     });
 
-    it('the vectors under operation should be untouched', () => {
-      a.toObject().should.to.deep.equal(set1);
-      b.toObject().should.to.deep.equal(set2);
+    it('the input vector should be untouched', () => {
+      b.should.to.deep.equal(set2);
     });
   });
 
   describe('multiply(vector)', () => {
     const a = new Vector(set1);
-    const v = a.multiply(10);
+    a.multiply(10);
 
     it('should be able to multiply a vector', () => {
-      v.toObject().should.to.deep.equal({ a: 10, b: 20, c: 30 });
-    });
-
-    it('the vectors under operation should be untouched', () => {
-      a.toObject().should.to.deep.equal(set1);
+      a.should.to.deep.equal({ a: 10, b: 20, c: 30 });
     });
   });
 
   describe('divide(vector)', () => {
     const a = new Vector(set1);
-    const v = a.divide(10);
+    a.divide(10);
 
     it('should be able to divide a vector', () => {
-      v.toObject().should.to.deep.equal({ a: 0.1, b: 0.2, c: 0.3 });
-    });
-
-    it('the vectors under operation should be untouched', () => {
-      a.toObject().should.to.deep.equal(set1);
+      a.should.to.deep.equal({ a: 0.1, b: 0.2, c: 0.3 });
     });
   });
 });
