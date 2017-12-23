@@ -19,6 +19,7 @@ const Vector = require('vector-object');
 
 * [Constructor](#constructor)
 * [clone()](#clone)
+* [toObject()](#toobject)
 * [getComponents()](#getcomponents)
 * [get(component)](#getcomponent)
 * [set(component, value)](#setcomponent-value)
@@ -49,6 +50,15 @@ const a = new Vector({ x: 1, y: 2, z: 3 });
 const b = a.clone();
 
 console.log(b); // return { x: 1, y: 2, z: 3 }
+```
+
+### toObject()
+
+return an json object of the vector
+```js
+const a = new Vector({ x: 1, y: 2, z: 3 });
+
+console.log(a.toObject()); // return { x: 1, y: 2, z: 3 }
 ```
 
 ### getComponents()
