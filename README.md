@@ -206,7 +206,7 @@ const b = new Vector({ b: 1, c: 2 });
 console.log(a); // return { a: 1, b: 0, c: -2 }
 ```
 
-### multiply(c)
+### multiply(scalar)
 
 perform multiplication with the input vector and return itself
 ```js
@@ -216,7 +216,7 @@ a.multiply(10);
 console.log(a); // return { a: 10, b: 20, c: 10 }
 ```
 
-### divide(c)
+### divide(scalar)
 
 perform division with the input vector and return itself
 ```js
