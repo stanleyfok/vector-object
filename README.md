@@ -210,7 +210,7 @@ The vector calculation methods are chainable so you can write your expression in
 ```js
 const a = new Vector({ a: 1, b: 2, c: 1 });
 const b = new Vector({ a: 2, b: 1 });
-const c = new Vector({ a: 2, b: 1 });
+const c = new Vector({ a: 1, b: 4, d: 2 });
 
 const v = a.clone().add(b).subtract(c).normalize();
 ```
