@@ -1,6 +1,6 @@
 {
   "name": "vector-object",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A vector class supporting vector operations in n-dimensional space. Useful for word vectors calculation.",
   "homepage": "https://github.com/stanleyfok/vector-object",
   "repository": {
