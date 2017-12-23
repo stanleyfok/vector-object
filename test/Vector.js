@@ -190,4 +190,28 @@ describe('Vector', () => {
       a.should.to.deep.equal({ a: 0.1, b: 0.2, c: 0.3 });
     });
   });
+
+  describe('chainability', () => {
+    const a = new Vector(set1);
+    const b = new Vector(set2);
+    const c = new Vector(set3);
+    const v = a.add(b).subtract(c);
+
+    it('the result is assigned to vector v', () => {
+      v.should.to.deep.equal({
+        a: 0, b: 2, c: 4, d: 2,
+      });
+    });
+
+    it('the vector a should be updated', () => {
+      a.should.to.deep.equal({
+        a: 0, b: 2, c: 4, d: 2,
+      });
+    });
+
+    it('the input vector should be untouched', () => {
+      b.should.to.deep.equal(set2);
+      c.should.to.deep.equal(set3);
+    });
+  });
 });

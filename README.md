@@ -15,7 +15,7 @@ And then import the Vector class
 const Vector = require('vector-object');
 ```
 
-## Change Log
+## Major Change Log
 
 #### 1.1.0
 
