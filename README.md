@@ -4,7 +4,28 @@ Vector Object
 [![Build Status](https://travis-ci.org/stanleyfok/vector-object.png?branch=master)](https://travis-ci.org/stanleyfok/vector-object)
 [![NPM version](https://img.shields.io/npm/v/vector-object.svg)](https://www.npmjs.com/package/vector-object)
 
-This is a n-dimensional vector implementation in javascript. A vector can be created using javascript objects, with the object keys as the components. It is useful for cases like word vector calculations. For example, calculating the cosine similarity of two word vectors.
+This is a n-dimensional vector implementation in javascript. A vector can be created using json objects, with the object keys as the components. It is useful for cases like word vector calculations. For example, calculating the cosine similarity of two word vectors.
+
+The advantage of using json object over array to define a vector is that we do not need the two vectors have the same number of components for calculations. Take the following example:
+
+Using this library:
+```js
+const a = new Vector({ react: 1, nodejs: 2, angular: 1 });
+const b = new Vector({ nodejs: 2, marko: 3, nextjs: 2 });
+
+const similarity = a.getCosineSimilarity(b);
+```
+
+What if using array:
+```js
+// assume index 0: react, index 1: nodejs, index 2: angular, index 3: marko, index 4: nextjs
+const a = new Vector([1, 2, 1, 0, 0]);
+const b = new Vector([0, 2, 0, 3, 2]);
+
+const similarity = a.getCosineSimilarity(b);
+```
+
+It is must easier to define vector in object than array as we need to pad much zeros into the array if two vectors have very few overlapping components. The vectors can have many components and sparse if we are doing word analyzation.
 
 ## Installation
 
