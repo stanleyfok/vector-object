@@ -16,7 +16,7 @@ const b = new Vector({ nodejs: 2, marko: 3, nextjs: 2 });
 const similarity = a.getCosineSimilarity(b);
 ```
 
-What if using array (* this is not supported in this library!):
+Compare what if using array (**Note: this is not supported in this library**):
 ```js
 // assume index 0: react, index 1: nodejs, index 2: angular, index 3: marko, index 4: nextjs
 const a = new Vector([1, 2, 1, 0, 0]);
