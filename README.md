@@ -58,8 +58,8 @@ The vector operations now would update the instance itself, rather than creating
 * [normalize()](#normalize)
 * [add(vector)](#addvector)
 * [subtract(vector)](#subtractvector)
-* [multiply(c)](#multiplyc)
-* [divide(c)](#dividec)
+* [multiply(scalar)](#multiplyscalar)
+* [divide(scalar)](#dividescalar)
 * [chainability](#chainability)
 
 ### constructor
