@@ -17,6 +17,18 @@ describe('Vector', () => {
     });
   });
 
+  describe('toObject()', () => {
+    it('should be able to return a json object of the vector', () => {
+      const a = new Vector(set1);
+      const obj = a.toObject();
+
+      obj.should.to.deep.equal(a);
+      obj.should.to.be.an.instanceof(Object);
+      a.should.to.be.an.instanceof(Vector);
+      obj.should.not.to.be.an.instanceof(Vector);
+    });
+  });
+
   describe('getComponents()', () => {
     it('should be able to getComponents of a vector', () => {
       const a = new Vector(set1);
