@@ -25,7 +25,7 @@ const b = new Vector([0, 2, 0, 3, 2]);
 const similarity = a.getCosineSimilarity(b);
 ```
 
-It is must easier to define vector in object than array as we need to pad much zeros into the array if two vectors have very few overlapping components. The vectors can be large but sparse if we are doing word analyzation.
+It is much easier to define vector in object than array as we need to pad much zeros into the array if two vectors have very few overlapping components. The vectors can be large but sparse if we are doing word analyzation.
 
 ## Installation
 
