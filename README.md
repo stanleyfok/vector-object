@@ -38,6 +38,10 @@ const Vector = require('vector-object');
 
 ## Major Change Log
 
+#### 1.2.0
+
+Fix the issue if the word vector contains words which are same as the instance methods
+
 #### 1.1.0
 
 The vector operations now would update the instance itself, rather than creating a new vector object. It is for better performance so less objects are created during the calculations. This is a **NON-COMPATIBLE** change. If you are using versions < 1.1.0, you may need rewrite a bit your code. Sorry for that 🙏🏼

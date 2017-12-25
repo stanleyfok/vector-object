@@ -22,7 +22,7 @@ describe('Vector', () => {
       const a = new Vector(set1);
       const obj = a.toObject();
 
-      obj.should.to.deep.equal(a);
+      obj.should.to.deep.equal(set1);
       obj.should.to.be.an.instanceof(Object);
       a.should.to.be.an.instanceof(Vector);
       obj.should.not.to.be.an.instanceof(Vector);
@@ -85,8 +85,8 @@ describe('Vector', () => {
     });
 
     it('the vectors under operation should be untouched', () => {
-      a.should.to.deep.equal(set1);
-      b.should.to.deep.equal(set2);
+      a.toObject().should.to.deep.equal(set1);
+      b.toObject().should.to.deep.equal(set2);
     });
   });
 
@@ -99,7 +99,7 @@ describe('Vector', () => {
     });
 
     it('the vectors under operation should be untouched', () => {
-      a.should.to.deep.equal(set1);
+      a.toObject().should.to.deep.equal(set1);
     });
   });
 
@@ -112,8 +112,8 @@ describe('Vector', () => {
     });
 
     it('the vectors under operation should be untouched', () => {
-      a.should.to.deep.equal(set1);
-      b.should.to.deep.equal(set2);
+      a.toObject().should.to.deep.equal(set1);
+      b.toObject().should.to.deep.equal(set2);
     });
   });
 
@@ -126,8 +126,8 @@ describe('Vector', () => {
     });
 
     it('the vectors under operation should be untouched', () => {
-      a.should.to.deep.equal(set1);
-      b.should.to.deep.equal(set2);
+      a.toObject().should.to.deep.equal(set1);
+      b.toObject().should.to.deep.equal(set2);
     });
   });
 
@@ -137,7 +137,7 @@ describe('Vector', () => {
     const v = a.normalize();
 
     it('should be able to get a normalized vector', () => {
-      v.should.to.deep.equal({ a: 1 / l, b: 2 / l, c: 3 / l });
+      v.toObject().should.to.deep.equal({ a: 1 / l, b: 2 / l, c: 3 / l });
     });
   });
 
@@ -147,13 +147,13 @@ describe('Vector', () => {
     a.add(b);
 
     it('should be able to add two vector', () => {
-      a.should.to.deep.equal({
+      a.toObject().should.to.deep.equal({
         a: 1, b: 4, c: 4, d: 2,
       });
     });
 
     it('the input vector should be untouched', () => {
-      b.should.to.deep.equal(set2);
+      b.toObject().should.to.deep.equal(set2);
     });
   });
 
@@ -163,13 +163,13 @@ describe('Vector', () => {
     a.subtract(b);
 
     it('should be able to subtract two vector', () => {
-      a.should.to.deep.equal({
+      a.toObject().should.to.deep.equal({
         a: 1, b: 0, c: 2, d: -2,
       });
     });
 
     it('the input vector should be untouched', () => {
-      b.should.to.deep.equal(set2);
+      b.toObject().should.to.deep.equal(set2);
     });
   });
 
@@ -178,7 +178,7 @@ describe('Vector', () => {
     a.multiply(10);
 
     it('should be able to multiply a vector', () => {
-      a.should.to.deep.equal({ a: 10, b: 20, c: 30 });
+      a.toObject().should.to.deep.equal({ a: 10, b: 20, c: 30 });
     });
   });
 
@@ -187,7 +187,7 @@ describe('Vector', () => {
     a.divide(10);
 
     it('should be able to divide a vector', () => {
-      a.should.to.deep.equal({ a: 0.1, b: 0.2, c: 0.3 });
+      a.toObject().should.to.deep.equal({ a: 0.1, b: 0.2, c: 0.3 });
     });
   });
 
@@ -198,20 +198,20 @@ describe('Vector', () => {
     const v = a.add(b).subtract(c);
 
     it('the result is assigned to vector v', () => {
-      v.should.to.deep.equal({
+      v.toObject().should.to.deep.equal({
         a: 0, b: 2, c: 4, d: 2,
       });
     });
 
     it('the vector a should be updated', () => {
-      a.should.to.deep.equal({
+      a.toObject().should.to.deep.equal({
         a: 0, b: 2, c: 4, d: 2,
       });
     });
 
     it('the input vector should be untouched', () => {
-      b.should.to.deep.equal(set2);
-      c.should.to.deep.equal(set3);
+      b.toObject().should.to.deep.equal(set2);
+      c.toObject().should.to.deep.equal(set3);
     });
   });
 });
