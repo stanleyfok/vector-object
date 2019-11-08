@@ -38,6 +38,10 @@ const Vector = require('vector-object');
 
 ## Major Change Log
 
+#### 1.3.0
+
+Upgrade dependency to fix security alerts
+
 #### 1.2.0
 
 Fix the issue if the word vector contains words which are same as the instance methods
