@@ -180,7 +180,7 @@ const similarityAA = a.getCosineSimilarity(a);
 const similarityAB = a.getCosineSimilarity(b);
 
 console.log(similarityAA); // return 1
-console.log(similarityAB); // return 0.6236095644623236
+console.log(similarityAB); // return 0.7715167498104596
 ```
 
 ### normalize()
