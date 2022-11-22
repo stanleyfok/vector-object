@@ -7,7 +7,7 @@
     "type": "git",
     "url": "git://github.com/stanleyfok/vector-object.git"
   },
-  "main": "./build/Vector.js",
+  "main": "./lib/Vector.js",
   "scripts": {
     "eslint": "./node_modules/.bin/eslint '**/*.js'",
     "eslint-fix": "./node_modules/.bin/eslint --fix '**/*.js'",
