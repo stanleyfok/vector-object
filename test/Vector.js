@@ -1,5 +1,5 @@
 const chai = require('chai');
-const Vector = require('../lib/Vector');
+const Vector = require('../build/Vector');
 
 chai.should();
 
