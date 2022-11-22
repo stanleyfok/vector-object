@@ -24,6 +24,7 @@
   "author": "Stanley Fok <stanleyfok@gmail.com> (https://github.com/stanleyfok)",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^18.11.9",
     "chai": "^4.2.0",
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^12.1.0",
