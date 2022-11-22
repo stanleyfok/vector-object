@@ -1,4 +1,4 @@
-export class Vector {
+export default class Vector {
   vector: object;
   constructor(object:object) {
     this.vector = Object.assign({}, object)
