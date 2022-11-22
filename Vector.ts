@@ -1,5 +1,6 @@
-class Vector {
-  constructor(object) {
+export class Vector {
+  vector: object;
+  constructor(object:object) {
     this.vector = Object.assign({}, object)
   }
 
@@ -15,15 +16,15 @@ class Vector {
     return Object.keys(this.vector);
   }
 
-  get(component) {
+  get(component:string) {
     return this.vector[component];
   }
 
-  set(component, value) {
+  set(component:string, value:any) {
     this.vector[component] = value;
   }
 
-  isEqual(vector) {
+  isEqual(vector:Vector) {
     const keys = this.getComponents();
     const vectorKeys = vector.getComponents();
 
@@ -42,7 +43,7 @@ class Vector {
     return true;
   }
 
-  getDistance(vector) {
+  getDistance(vector:Vector) {
     const tmpVector = this.clone().subtract(vector);
     let d = 0;
 
@@ -63,7 +64,7 @@ class Vector {
     return Math.sqrt(l);
   }
 
-  getDotProduct(vector) {
+  getDotProduct(vector:Vector) {
     let dotProduct = 0;
 
     this.getComponents().forEach((k) => {
@@ -75,7 +76,7 @@ class Vector {
     return dotProduct;
   }
 
-  getCosineSimilarity(vector) {
+  getCosineSimilarity(vector:Vector) {
     return this.getDotProduct(vector) / (this.getLength() * vector.getLength());
   }
 
@@ -85,7 +86,7 @@ class Vector {
     return this.divide(l);
   }
 
-  add(vector) {
+  add(vector:Vector):Vector {
     vector.getComponents().forEach((k) => {
       if (this.vector[k] !== undefined) {
         this.vector[k] += vector.vector[k];
@@ -97,7 +98,7 @@ class Vector {
     return this;
   }
 
-  subtract(vector) {
+  subtract(vector:Vector):Vector {
     vector.getComponents().forEach((k) => {
       if (this.vector[k] !== undefined) {
         this.vector[k] -= vector.vector[k];
@@ -109,7 +110,7 @@ class Vector {
     return this;
   }
 
-  multiply(scalar) {
+  multiply(scalar:number):Vector {
     this.getComponents().forEach((k) => {
       this.vector[k] *= scalar;
     });
@@ -117,7 +118,7 @@ class Vector {
     return this;
   }
 
-  divide(scalar) {
+  divide(scalar:number):Vector {
     this.getComponents().forEach((k) => {
       this.vector[k] /= scalar;
     });
@@ -126,4 +127,3 @@ class Vector {
   }
 }
 
-module.exports = Vector;
